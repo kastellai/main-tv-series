@@ -1,0 +1,229 @@
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@200;700&display=swap');
+
+body {
+    background-color: black;
+    font-family: 'Mulish', sans-serif;
+}
+
+h1 {
+    color: rgb(185, 1, 1);
+    text-align: center;
+    font-size: 52px;
+    padding-top: 12px;
+    padding-bottom: 8px;
+    margin: 0;
+}
+
+/* Movie Preview Area */
+.hero-bg {
+    background-size: cover;
+    height: auto;
+    width: 100%;
+    align-content: center;
+}
+  
+.hero-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 28px 28px 0;
+    background-color: rgba(0,0,0, 0.5);
+    padding: 0 20px 0px 30px;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 200;
+    height: 550px;
+    width: 450px;
+}
+
+/* Movies Cards List Area */
+.container-cards {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 40px;
+}
+
+.card {
+    margin: 20px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+    width: 200px;
+    height: 300px;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.card-details {
+    font-size: 18px;
+    color: white;
+    text-align: right;
+    width: fit-content;
+    height: fit-content;
+    font-weight: bold;
+    padding: 1px 8px;
+    background-color: rgba(255, 230, 1, 0.5);
+    border-radius: 12px;
+}
+
+.card-details p {
+    margin: 0;
+}
+
+.custom-btn {
+    display:inline-block;
+    border:0.10em solid rgba(255,255,255,0);
+    border-radius:2em;
+    padding: 5px 12px;
+    box-sizing: border-box;
+    text-decoration:none;
+    color:rgba(255,255,255,1);
+    background-color: rgb(58, 47, 47);
+    text-shadow: 0 0.04em 0.04em rgba(0,0,0,0.35);
+    text-align:center;
+    transition: all 0.2s;
+}
+
+.custom-btn:hover{
+    border-color: rgba(255,255,255,1);
+}
+
+footer {
+    padding: 25px;
+    background-color: seashell;
+    color: rgb(58, 47, 47);
+    font-size: 16px;
+    text-align: center;
+}
+
+
+
+/* DETAILS PAGE */
+.container-movie-details {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-content: center;
+    width: 95%;
+    color: white;
+    margin: 20px auto 40px auto;
+
+}
+
+.movie-details-title {
+    width: 95%;
+    text-align: center;
+    color: white;
+    padding-bottom: 40px;
+}
+
+.movie-details-description {
+    width: 95%;
+    text-align: justify;
+    font-size: 20px;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+.movie-details-scenes {
+    display: flex;
+    flex-wrap: wrap;
+    width: 95%;
+    justify-content: space-evenly;
+    padding-top: 25px;
+    padding-bottom: 25px;
+}
+
+img {
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.flex-btn-container {
+    display: flex;
+    width: 95%;
+    flex-direction: column;
+    padding-top: 10px;
+    align-items: flex-end;
+}
+
+.flex-btn-container button {
+    width:fit-content;
+    padding: 10px;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 */
+    height: 0;
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+/* Arrows on the bottom */
+.container-arrows {
+    display: flex;
+    justify-content: space-between;
+    padding:25px;
+}
+
+div.arrow {
+    width: 3vmin;
+    height: 3vmin;
+    box-sizing: border-box;
+    left: 50%;
+    top: 50%;
+}
+
+div.arrow.rgt {
+    transform: rotate(45deg);
+}
+
+div.arrow.lft {
+    transform: rotate(-135deg);
+}
+
+div.arrow:before {
+    content: '';
+    width: 100%;
+    height: 100%;
+    border-width: .8vmin .8vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transition: .2s ease;
+    display: block;
+    transform-origin: 100% 0;
+}
+
+div.arrow:after {
+    content: '';
+    float: left;
+    position: relative;
+    top: -100%;
+    width: 100%;
+    height: 100%;
+    border-width: 0 .8vmin 0 0;
+    border-style: solid;
+    border-color: #fafafa;
+    transform-origin: 100% 0;
+    transition:.2s ease;
+}
+
+div.arrow:hover::after {
+    transform: rotate(45deg);
+    border-color: red;
+    height: 120%;
+}
+div.arrow:hover::before {
+    border-color: red;
+    transform: scale(.8);
+}
