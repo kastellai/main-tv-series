@@ -15,7 +15,6 @@ h1 {
 }
 
 /* Movie Preview Area */
-
 .container-hero {
     display: flex;
     flex-wrap: wrap;
@@ -52,9 +51,6 @@ h1 {
 }
 
 .hero-details p {
-    /* width: fit-content;
-    position: relative; */
-    /* overflow: hidden ; */
     margin-left: 10px;
 }
 
