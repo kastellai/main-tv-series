@@ -1,17 +1,23 @@
 import { render } from './utils.js';
 
-const Preview = (data, id) => {
-  const item = data.filter((card) => card.id == id)
+const Preview = (record) => {
+
+  const mobilePreview = record.poster_path ? `https://image.tmdb.org/t/p/original/${record.poster_path}` : `./assets/404-error-page-not-found-m.jpeg`;
+  const desktopPreview = record.backdrop_path ? `https://image.tmdb.org/t/p/original/${record.backdrop_path}` : `./assets/404-error-page-not-found.jpeg`;
 
   const heroElement =
   `
-    <div class="hero-bg" style="background-image: url('https://image.tmdb.org/t/p/original/${item[0].backdrop_path}');">
-        <div class="hero-details">
-            <h2>${item[0].name}</h2>
-            <p>${item[0].overview.length > 600 ? item[0].overview.substring(0,600)+"..." : item[0].overview }</p>
-            <button class="custom-btn" id=${item[0].id}>Details</a>
-        </div>
+    <div class="hero-bg">
+      <picture>
+          <source media="(min-width: 991px)" srcset="${desktopPreview}">
+          <img src="${mobilePreview}">
+      </picture>
     </div>
+      <div class="hero-details">
+          <h2>${record.name}</h2>
+          <p class=${record.overview.length > 550 ? "truncate" : null} >${record.overview}</p>
+          <button class="custom-btn" id=${record.id}>Details</a>
+      </div>
   `;
 
   const hero = document.querySelector(".container-hero");
@@ -20,7 +26,7 @@ const Preview = (data, id) => {
   let detailsBtn = document.querySelectorAll('.custom-btn');
   detailsBtn.forEach((btn) => {
       btn.addEventListener("click", (e) => {
-          location.href = `./tv-series.html?id=${e.currentTarget.id}`;
+        location.href = `./tv-series.html?id=${e.currentTarget.id}`;
       });
   });
 }

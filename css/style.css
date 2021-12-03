@@ -15,13 +15,23 @@ h1 {
 }
 
 /* Movie Preview Area */
-.hero-bg {
+.container-hero {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    margin-left: auto;
+    margin-right: auto;
+    width: fit-content;
+}
+
+.hero-bg img {
     background-size: cover;
     height: auto;
-    width: 100%;
-    align-content: center;
+    width: 350px;
+    align-self: center;
 }
   
+/* .hero-details-container { display: flex;} */
 .hero-details {
     display: flex;
     flex-wrap: wrap;
@@ -30,12 +40,26 @@ h1 {
     justify-content: center;
     border-radius: 0 28px 28px 0;
     background-color: rgba(0,0,0, 0.5);
-    padding: 0 20px 0px 30px;
+    padding: 0 20px 0px 20px;
     color: white;
     font-size: 1.3rem;
     font-weight: 200;
     height: 550px;
-    width: 450px;
+    width: 330px;
+    position: absolute;
+    align-self: center;
+}
+
+.hero-details p {
+    margin-left: 10px;
+}
+
+.truncate {
+    display: block;
+    text-overflow: ellipsis;
+    word-wrap: break-word;
+    overflow: hidden;
+    max-height: 11.5em;
 }
 
 /* Movies Cards List Area */
@@ -158,7 +182,6 @@ img {
 .videoWrapper {
     position: relative;
     padding-bottom: calc(591.44 / 1127.34 * 100%);
-    /* padding-bottom: 56.25%;  */
     height: 0;
 }
 
@@ -228,4 +251,16 @@ div.arrow:hover::after {
 div.arrow:hover::before {
     border-color: red;
     transform: scale(.8);
+}
+
+
+@media (min-width: 991px) {
+    .hero-bg img {
+        width: auto;
+        height: 540px;
+    }
+
+    div.hero-details {
+        width: 450px;
+    }
 }
