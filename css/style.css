@@ -27,8 +27,8 @@ h1 {
 
 .hero-bg img {
     background-size: cover;
-    height: 550px;
-    width: auto;
+    height: auto;
+    width: 350px;
     align-self: center;
 }
   
@@ -41,7 +41,7 @@ h1 {
     justify-content: center;
     border-radius: 0 28px 28px 0;
     background-color: rgba(0,0,0, 0.5);
-    padding: 0 20px 0px 30px;
+    padding: 0 20px 0px 20px;
     color: white;
     font-size: 1.3rem;
     font-weight: 200;
@@ -52,9 +52,10 @@ h1 {
 }
 
 .hero-details p {
-    width: fit-content;
-    position: relative;
-    overflow: hidden ;
+    /* width: fit-content;
+    position: relative; */
+    /* overflow: hidden ; */
+    margin-left: 10px;
 }
 
 .truncate {
@@ -259,8 +260,8 @@ div.arrow:hover::before {
 
 @media (min-width: 991px) {
     .hero-bg img {
-        max-width: auto;
-        max-height: 540px;
+        width: auto;
+        height: 540px;
     }
 
     div.hero-details {
