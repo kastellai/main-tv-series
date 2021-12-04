@@ -30,7 +30,7 @@ const getFavouritesLS = () => {
 }
 
 const removeFromFavouritesLS = (id) => {
-    let myfavs = getFavouritesLS().filter(value => value != id )
+    let myfavs = getFavouritesLS().filter(value => value.id != id )
     localStorage.setItem("myFavourites", JSON.stringify(myfavs));
 }
 

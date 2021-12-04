@@ -10,8 +10,20 @@
         <script src="js/index.js" type="module"></script>
     </head>
     <body>
-        <h1>Main TV Series</h1>
-        <div class="container-hero" id='preview'>
+        <!-- <h1>Main TV Series</h1> -->
+        <header>
+            <ul>
+                <!-- <img src="https://img.icons8.com/cotton/64/000000/popcorn.png" width="60px"/> -->
+                <li><h1 class="title">Netf..ake</h1></li>
+                <li><a class="active" href="#">Home</a></li>
+                <li><a class="view-fav">Favourites</a></li>
+            </ul>
+        </header>
+
+        <div id="favourites">
+        </div>
+        
+        <div class="container-hero">
             <!-- the Movie Overview is rendered here -->
         </div>
         <div class="container-arrows">
@@ -24,4 +36,8 @@
 
         <footer>Created by Ilenia Castellana</footer>
     </body>
+    <div class="modal-fav hidden"> 
+        <div class="container-fav">
+        </div>
+    </div>
 </html>

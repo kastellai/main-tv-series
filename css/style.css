@@ -5,6 +5,51 @@ body {
     font-family: 'Mulish', sans-serif;
 }
 
+
+ul {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:black;
+    z-index: 3;
+}
+
+li {
+    float: left;
+}
+
+.title {
+    padding: 10px 15px 10px 20px;
+    color: red;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:rgb(32, 32, 32);;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+
+
+
 h1 {
     color: rgb(185, 1, 1);
     text-align: center;
@@ -22,6 +67,7 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    margin-top: 100px;
 }
 
 .hero-bg img {
@@ -79,6 +125,16 @@ h1 {
     height: 300px;
     border-radius: 12px;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 3px #4c4a4a;
+
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+
+.grow:hover { 
+    transform: scale(1.1); 
 }
 
 .card-details {
@@ -201,6 +257,36 @@ img {
     height: 100%;
 }
 
+.modal-fav {
+    border-radius: 15px;
+    position: fixed;
+    width: 90%;
+    height: fit-content;
+    margin-left: 20px;
+    top: 60px;
+    z-index: 2;
+    background-color: rgb(32 32 32 / 85%);
+    color: whitesmoke;
+    box-shadow: 0px 0px 10px 3px #4c4a4a;
+}
+
+.hidden {
+    margin-left: -920px;
+}
+
+.my-fav-item {
+    display: flex;
+    padding: 0px 18px 0px 10px;
+    cursor: pointer;
+    justify-content: space-between;
+
+}
+
+.delete-my-fav {
+    margin: 0;
+    width: 25px;
+    color: white;
+}
 
 /* Arrows on the bottom */
 .container-arrows {
@@ -270,5 +356,14 @@ div.arrow:hover::before {
 
     div.hero-details {
         width: 450px;
+    }
+
+    div.modal-fav:not(.hidden) {
+        width: 30%;
+        margin-left: 250px;
+    }
+
+    div.modal-fav.hidden {
+        width: 30%;
     }
 }
