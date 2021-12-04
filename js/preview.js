@@ -16,7 +16,7 @@ const Preview = (record) => {
     </div>
       <div class="hero-details">
           <h2>${record.name}</h2>
-          <p class=${record.overview.length > 550 ? "truncate" : null} >${record.overview}</p>
+          <p ${record.overview.length > 550 ? `class="truncate"` : ``} >${record.overview}</p>
           <button class="custom-btn details" id=${record.id}>Details</button>
           ${ getFavouritesLS()?.includes(record.id.toString()) 
             ? `<img class="my-fav" id=${record.id} src="https://img.icons8.com/color/96/000000/starred-ticket.png" width="60px"/>`
