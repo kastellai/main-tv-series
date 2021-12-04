@@ -115,6 +115,14 @@ h1 {
     border-color: rgba(255,255,255,1);
 }
 
+.my-fav-btn {
+    margin-top: 8px;
+    color:rgba(255,255,255,1);
+    background-color: rgba(58, 47, 47, 0);
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0);
+    background-color: rgb(124, 91, 91);
+}
+
 footer {
     padding: 25px;
     background-color: seashell;

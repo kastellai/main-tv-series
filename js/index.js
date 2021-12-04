@@ -24,7 +24,8 @@ const renderMoviesList = (data) => {
 const renderCards = () => {
     fetchMoviesList(getPageLS()).then((result) => {
         data = result; 
-        renderMoviesList(result); });
+        renderMoviesList(result);
+    });
 }
 
 document.addEventListener("DOMContentLoaded", () => {

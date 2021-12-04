@@ -1,3 +1,4 @@
+import { getFavouritesLS } from './locaStorage.js';
 import { render } from './utils.js';
 
 const List = (data) => {
@@ -8,6 +9,9 @@ const List = (data) => {
           <div class="card-details">
             <p>rate: ${item.vote_average}</p>
           </div>
+        ${ getFavouritesLS().includes(item.id.toString()) 
+          ? `<img class="my-fav" src="https://img.icons8.com/color/96/000000/starred-ticket.png" width="52px"/>`
+          : `` }
         </div>`
       )
       .join("");

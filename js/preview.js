@@ -1,4 +1,5 @@
 import { render } from './utils.js';
+import { saveFavouritesLS, getFavouritesLS } from './locaStorage.js';
 
 const Preview = (record) => {
 
@@ -16,17 +17,35 @@ const Preview = (record) => {
       <div class="hero-details">
           <h2>${record.name}</h2>
           <p class=${record.overview.length > 550 ? "truncate" : null} >${record.overview}</p>
-          <button class="custom-btn" id=${record.id}>Details</a>
+          <button class="custom-btn details" id=${record.id}>Details</a>
+          <span />
+          <button class="custom-btn my-fav-btn" id=${record.id}>Add to Fav</a>
       </div>
   `;
 
   const hero = document.querySelector(".container-hero");
   render(hero,`${heroElement}`);
 
-  let detailsBtn = document.querySelectorAll('.custom-btn');
+  let detailsBtn = document.querySelectorAll('.custom-btn.details');
   detailsBtn.forEach((btn) => {
-      btn.addEventListener("click", (e) => {
-        location.href = `./tv-series.html?id=${e.currentTarget.id}`;
+    btn.addEventListener("click", (e) => {
+      location.href = `./tv-series.html?id=${e.currentTarget.id}`;
+    });
+  });
+
+  const favImg = document.createElement("img");
+  favImg.setAttribute("src", "https://img.icons8.com/color/96/000000/starred-ticket.png");
+  favImg.setAttribute("class", "my-fav");
+  favImg.setAttribute("width", "52px");
+
+  let myFavouritesBtn = document.querySelectorAll('.custom-btn.my-fav-btn');
+  myFavouritesBtn.forEach((btn) => {
+    btn.addEventListener("click", (e) => {
+      getFavouritesLS().includes(e.currentTarget.id) 
+        ? null 
+        : saveFavouritesLS(e.currentTarget.id);
+        const currentCardID = document.querySelector(`div[id="${e.currentTarget.id}"]`) ;
+        currentCardID.appendChild(favImg)
       });
   });
 }
