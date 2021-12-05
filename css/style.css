@@ -5,6 +5,49 @@ body {
     font-family: 'Mulish', sans-serif;
 }
 
+
+ul {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:black;
+    z-index: 3;
+}
+
+li {
+    float: left;
+}
+
+.title {
+    padding: 10px 15px 10px 20px;
+    color: red;
+    font-size: 30px;
+    margin-bottom: 0;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 18px 16px;
+    text-decoration: none;
+}
+
+li a:hover:not(.active) {
+    background-color: #111;
+}
+
+.active {
+    background-color:rgb(32, 32, 32);;
+    color: whitesmoke;
+    font-weight: bold;
+}
+
+
 h1 {
     color: rgb(185, 1, 1);
     text-align: center;
@@ -22,16 +65,17 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
+    /* margin-top: 100px; */
 }
 
 .hero-bg img {
     background-size: cover;
+    filter: brightness(40%);
     height: auto;
     width: 350px;
     align-self: center;
 }
   
-/* .hero-details-container { display: flex;} */
 .hero-details {
     display: flex;
     flex-wrap: wrap;
@@ -39,7 +83,6 @@ h1 {
     align-items: center;
     justify-content: center;
     border-radius: 0 28px 28px 0;
-    background-color: rgba(0,0,0, 0.5);
     padding: 0 20px 0px 20px;
     color: white;
     font-size: 1.3rem;
@@ -79,6 +122,15 @@ h1 {
     height: 300px;
     border-radius: 12px;
     cursor: pointer;
+    box-shadow: 0px 0px 10px 3px #4c4a4a;
+}
+
+.grow { 
+    transition: all .2s ease-in-out; 
+}
+
+.grow:hover { 
+    transform: scale(1.1); 
 }
 
 .card-details {
@@ -113,6 +165,14 @@ h1 {
 
 .custom-btn:hover{
     border-color: rgba(255,255,255,1);
+}
+
+.my-fav-btn {
+    margin-top: 8px;
+    color:rgba(255,255,255,1);
+    background-color: rgba(58, 47, 47, 0);
+    text-shadow: 0 0.04em 0.04em rgba(0, 0, 0, 0);
+    background-color: rgb(124, 91, 91);
 }
 
 footer {
@@ -193,6 +253,36 @@ img {
     height: 100%;
 }
 
+.modal-fav {
+    border-radius: 15px;
+    position: fixed;
+    width: 90%;
+    height: fit-content;
+    margin-left: 20px;
+    top: 60px;
+    z-index: 2;
+    background-color: rgb(32 32 32 / 85%);
+    color: whitesmoke;
+    box-shadow: 0px 0px 10px 3px #4c4a4a;
+}
+
+.hidden {
+    margin-left: -920px;
+}
+
+.my-fav-item {
+    display: flex;
+    padding: 0px 18px 0px 10px;
+    cursor: pointer;
+    justify-content: space-between;
+
+}
+
+.delete-my-fav {
+    margin: 0;
+    width: 25px;
+    color: white;
+}
 
 /* Arrows on the bottom */
 .container-arrows {
@@ -254,13 +344,92 @@ div.arrow:hover::before {
 }
 
 
+#slider {
+    position: relative;
+    width: 50%;
+    height: 540px;
+    margin: 70px auto 0px;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+
+  #slider label,
+  #slider label img .hero-details {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 400ms ease;
+  }
+
+#s1:checked ~ #slide1,
+ #s2:checked ~ #slide2,
+  #s3:checked ~ #slide3,
+   #s4:checked ~ #slide4,
+    #s5:checked ~ #slide5 {
+  transform: translate3d(0%, 0, 0px);
+}
+#s1:checked ~ #slide2,
+ #s2:checked ~ #slide3,
+  #s3:checked ~ #slide4,
+   #s4:checked ~ #slide5,
+    #s5:checked ~ #slide1 {
+  transform: translate3d(20%, 0, -100px);
+}
+
+#s1:checked ~ #slide3,
+ #s2:checked ~ #slide4,
+  #s3:checked ~ #slide5,
+   #s4:checked ~ #slide1,
+    #s5:checked ~ #slide2 {
+  transform: translate3d(40%, 0, -250px);
+}
+
+#s1:checked ~ #slide5,
+ #s2:checked ~ #slide1,
+  #s3:checked ~ #slide2,
+   #s4:checked ~ #slide3,
+    #s5:checked ~ #slide4 {
+  transform: translate3d(-20%, 0, -100px);
+}
+
+#s1:checked ~ #slide4,
+ #s2:checked ~ #slide5,
+  #s3:checked ~ #slide1,
+   #s4:checked ~ #slide2,
+    #s5:checked ~ #slide3 {
+  transform: translate3d(-40%, 0, -250px);
+}
+
 @media (min-width: 991px) {
     .hero-bg img {
         width: auto;
         height: 540px;
+        filter: brightness(100%);
     }
 
     div.hero-details {
         width: 450px;
+        height: -webkit-fill-available;
+        margin-left: 10px;
+        background-color: rgba(0,0,0, 0.5);
+    }
+
+    div.modal-fav:not(.hidden) {
+        width: 30%;
+        margin-left: 250px;
+    }
+
+    div.modal-fav.hidden {
+        width: 30%;
     }
 }
