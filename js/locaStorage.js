@@ -14,14 +14,12 @@ const getCardLS = () => {
     return localStorage.getItem("lastCard");
 }
 
-const saveFavouritesLS = (id) => {
+const saveFavouritesLS = (records) => {
     let myF;
-    
     localStorage.getItem("myFavourites") 
         ? myF = JSON.parse(localStorage.getItem("myFavourites"))
         : myF = [];
-
-    myF.push(id)
+    records.forEach(x => myF.push(x))
     localStorage.setItem("myFavourites", JSON.stringify(myF));
 }
 
@@ -30,7 +28,7 @@ const getFavouritesLS = () => {
 }
 
 const removeFromFavouritesLS = (id) => {
-    let myfavs = getFavouritesLS().filter(value => value.id != id )
+    let myfavs = getFavouritesLS().filter(value => parseInt(value.id) != parseInt(id) )
     localStorage.setItem("myFavourites", JSON.stringify(myfavs));
 }
 

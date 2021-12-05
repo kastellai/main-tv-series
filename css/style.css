@@ -48,8 +48,6 @@ li a:hover:not(.active) {
 }
 
 
-
-
 h1 {
     color: rgb(185, 1, 1);
     text-align: center;
@@ -67,17 +65,17 @@ h1 {
     margin-left: auto;
     margin-right: auto;
     width: fit-content;
-    margin-top: 100px;
+    /* margin-top: 100px; */
 }
 
 .hero-bg img {
     background-size: cover;
+    filter: brightness(40%);
     height: auto;
     width: 350px;
     align-self: center;
 }
   
-/* .hero-details-container { display: flex;} */
 .hero-details {
     display: flex;
     flex-wrap: wrap;
@@ -85,7 +83,6 @@ h1 {
     align-items: center;
     justify-content: center;
     border-radius: 0 28px 28px 0;
-    background-color: rgba(0,0,0, 0.5);
     padding: 0 20px 0px 20px;
     color: white;
     font-size: 1.3rem;
@@ -126,7 +123,6 @@ h1 {
     border-radius: 12px;
     cursor: pointer;
     box-shadow: 0px 0px 10px 3px #4c4a4a;
-
 }
 
 .grow { 
@@ -348,14 +344,84 @@ div.arrow:hover::before {
 }
 
 
+#slider {
+    position: relative;
+    width: 50%;
+    height: 540px;
+    margin: 70px auto 0px;
+    perspective: 1400px;
+    transform-style: preserve-3d;
+  }
+
+  #slider label,
+  #slider label img .hero-details {
+    position: absolute;
+    width: 100%;
+    height: fit-content;
+    left: 0;
+    top: 0;
+    color: white;
+    font-size: 70px;
+    font-weight: bold;
+    border-radius: 3px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 400ms ease;
+  }
+
+#s1:checked ~ #slide1,
+ #s2:checked ~ #slide2,
+  #s3:checked ~ #slide3,
+   #s4:checked ~ #slide4,
+    #s5:checked ~ #slide5 {
+  transform: translate3d(0%, 0, 0px);
+}
+#s1:checked ~ #slide2,
+ #s2:checked ~ #slide3,
+  #s3:checked ~ #slide4,
+   #s4:checked ~ #slide5,
+    #s5:checked ~ #slide1 {
+  transform: translate3d(20%, 0, -100px);
+}
+
+#s1:checked ~ #slide3,
+ #s2:checked ~ #slide4,
+  #s3:checked ~ #slide5,
+   #s4:checked ~ #slide1,
+    #s5:checked ~ #slide2 {
+  transform: translate3d(40%, 0, -250px);
+}
+
+#s1:checked ~ #slide5,
+ #s2:checked ~ #slide1,
+  #s3:checked ~ #slide2,
+   #s4:checked ~ #slide3,
+    #s5:checked ~ #slide4 {
+  transform: translate3d(-20%, 0, -100px);
+}
+
+#s1:checked ~ #slide4,
+ #s2:checked ~ #slide5,
+  #s3:checked ~ #slide1,
+   #s4:checked ~ #slide2,
+    #s5:checked ~ #slide3 {
+  transform: translate3d(-40%, 0, -250px);
+}
+
 @media (min-width: 991px) {
     .hero-bg img {
         width: auto;
         height: 540px;
+        filter: brightness(100%);
     }
 
     div.hero-details {
         width: 450px;
+        height: -webkit-fill-available;
+        margin-left: 10px;
+        background-color: rgba(0,0,0, 0.5);
     }
 
     div.modal-fav:not(.hidden) {

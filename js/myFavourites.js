@@ -1,5 +1,5 @@
 import { getFavouritesLS, removeFromFavouritesLS } from './locaStorage.js';
-
+import { addToFav, removeFromFav } from './preview2.js';
 const myFavourites = () => {
 
     const viewFavourites = document.querySelector('.view-fav');
@@ -8,11 +8,9 @@ const myFavourites = () => {
         const modalFav = document.querySelector('.modal-fav');
         const containerFav = document.querySelector('.container-fav');
         let favs = getFavouritesLS();
-
         while (containerFav.firstChild) {
             containerFav.removeChild(containerFav.firstChild);
         }
-
 
         favs.forEach((fav) => {
             const deletItem = document.createElement(`img`);
@@ -38,19 +36,22 @@ const myFavourites = () => {
 
             deletItem.addEventListener("click", () => {
                 removeFromFavouritesLS(fav.id);
-                const currentCardID = document.querySelector(`div[id="${fav.id}"]`) ;
-                currentCardID?.removeChild(document.querySelector(`div[id="${fav.id}"] img.my-fav`));
+
+                const currentCardID = document.querySelector(`div[class="card grow"][id="${fav.id}"]`) ;
+                currentCardID?.removeChild(currentCardID.querySelector(`div[id="${fav.id}"] img.my-fav`));
                 containerFav.removeChild(favItem);
                 
-                const currentPreview = document.querySelector(`.details[id="${fav.id}"]`).parentElement;
+                const currentPreview = document.querySelector(`div[class="hero-details"][id="${fav.id}"]`);
                 const addFavBtn = document.createElement("button");
                 addFavBtn.setAttribute("class", "custom-btn my-fav-btn");
                 addFavBtn.textContent = "Add to Fav";
                 addFavBtn.setAttribute("id", fav.id);
                 currentPreview?.appendChild(addFavBtn);
-                currentPreview?.removeChild(document.querySelector(`.hero-details img`));
+                currentPreview?.removeChild(currentPreview.querySelector(`.hero-details img`));
 
+                addToFav(currentPreview.querySelector('button.custom-btn.my-fav-btn'));
                 document.querySelectorAll('.my-fav-item').length ? null : modalFav.classList.toggle("hidden");
+
             });
         })
         

@@ -13,7 +13,6 @@
         <!-- <h1>Main TV Series</h1> -->
         <header>
             <ul>
-                <!-- <img src="https://img.icons8.com/cotton/64/000000/popcorn.png" width="60px"/> -->
                 <li><h1 class="title">Netf..ake</h1></li>
                 <li><a class="active" href="#">Home</a></li>
                 <li><a class="view-fav">Favourites</a></li>
@@ -23,9 +22,34 @@
         <div id="favourites">
         </div>
         
-        <div class="container-hero">
-            <!-- the Movie Overview is rendered here -->
-        </div>
+        <section id="slider">
+            <input hidden type="radio" name="slider" id="s1" checked>
+            <input hidden type="radio" name="slider" id="s2">
+            <input hidden type="radio" name="slider" id="s3">
+            <input hidden type="radio" name="slider" id="s4">
+            <input hidden type="radio" name="slider" id="s5">
+            <label for="s1" id="slide1">
+                <div class="container-hero">
+                </div>
+            </label>
+            <label for="s2" id="slide2">
+                <div class="container-hero next">
+                </div>
+            </label>
+            <label for="s3" id="slide3">
+                <div class="container-hero next2">
+                </div>
+            </label>
+            <label for="s4" id="slide4">
+                <div class="container-hero prev">
+                </div>
+            </label>
+            <label for="s5" id="slide5">
+                <div class="container-hero prev2">
+                </div>
+            </label>   
+        </section>
+
         <div class="container-arrows">
             <div class="arrow lft"></div>
             <div class="arrow rgt"></div>
